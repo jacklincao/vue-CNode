@@ -2,13 +2,13 @@
 
 ## 介绍
 > 使用vue实现CNode社区
-> 正在学习vue,为了练手,模仿一个CNode社区
+> 正在学习vue,为了练手,使用官方vue-cli模仿一个CNode社区
 > 使用到的技术栈：
 1. vue
 2. vue-router
 3. vuex
-感谢[CNode][1]社区提供的API
-## Build Setup
+> 感谢[CNode][1]社区提供的API
+## 安装和启动
 
 ``` bash
 # install dependencies
