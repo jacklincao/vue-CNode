@@ -1,7 +1,12 @@
-# vue-cnode
+﻿# vue-cnode
 
+## 介绍
 > 使用vue实现CNode社区
-
+> 正在学习vue,为了练手,模仿一个CNode社区
+> 使用到的技术栈：1. vue
+                  2. vue-router
+                  3. vuex
+> 感谢[CNode][1]社区提供的API
 ## Build Setup
 
 ``` bash
@@ -28,3 +33,6 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+  [1]: https://cnodejs.org/

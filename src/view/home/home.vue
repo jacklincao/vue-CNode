@@ -44,7 +44,18 @@
             <div class="item" style="font-style: italic;">“ 这家伙很懒，什么个性签名都没有留下。 ”</div>
           </div>
           <div class="userbox">
-            发布话题
+            <div style="height: 40px;
+    background-color: #80bd01;
+    width: 100px;
+    border-radius: 5px;
+    margin: 4px 15px;
+        display: flex;
+    justify-content: center;
+    align-items: center;">
+              <span style="color: white;letter-spacing: 2px;">
+                发布话题
+              </span>
+            </div>
           </div>
         </div>
       </el-col>
