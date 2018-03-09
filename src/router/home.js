@@ -22,5 +22,9 @@ export default [
   {
     path: 'set',
     component: () => import('../view/home/set')
+  },
+  {
+    path: '/publishtopic',
+    component: () => import('../view/home/publishtopic')
   }
 ]

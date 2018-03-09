@@ -32,7 +32,7 @@
                 <router-link class="head-link" to="/set" :style="[path == 'set' ? active : '']">设置</router-link>
               </div>
               <div class="head-nav">
-                <router-link class="head-link" to="/user/login" :style="[path == 'loginout' ? active : '']">退出</router-link>
+                <a class="head-link" @click="loginout">退出</a>
               </div>
             </div>
             </div>
@@ -57,7 +57,12 @@ export default {
   mounted () {
     // todo
   },
-  methods: {},
+  methods: {
+    loginout () {
+      this.$store.dispatch('accountLogoutSubmit')
+      this.$router.push('/')
+    }
+  },
   watch: {
     '$route': function () {
       this.path = this.$route.path.split('/')[1]

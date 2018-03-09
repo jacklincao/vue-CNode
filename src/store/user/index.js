@@ -57,9 +57,9 @@ export default {
       })
     },
     accountLogoutSubmit ({commit}) {
-      LoginApi.logout().then(res => {
-        commit(types.ACCOUNT_LOGOUT_FAILURE)
-      })
+      // LoginApi.logout().then(res => {
+      commit(types.ACCOUNT_LOGOUT_FAILURE)
+      // })
     }
   }
 }

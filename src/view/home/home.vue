@@ -44,19 +44,25 @@
             <div class="item" style="font-style: italic;">“ 这家伙很懒，什么个性签名都没有留下。 ”</div>
           </div>
           <div class="userbox">
-            <div style="height: 40px;
-    background-color: #80bd01;
-    width: 100px;
-    border-radius: 5px;
-    margin: 4px 15px;
-        display: flex;
-    justify-content: center;
-    align-items: center;">
-              <span style="color: white;letter-spacing: 2px;">
+            <div class="topicBox">
+              <span @click="toPublishTopic" style="color: white;letter-spacing: 2px;">
                 发布话题
               </span>
             </div>
           </div>
+        </div>
+        <div v-if="!this.$store.state.user.auth.isLogin">
+            <div class="boxnav">
+              CNode：Node.js专业中文社区
+            </div>
+            <div class="userbox ">
+              <div class="item" style="padding-top: 10px;padding-bottom: 10px;">
+               您可以 登录 或 注册 , 也可以
+                <div style="margin-top: 10px;">
+                  <span class="login">通过github登录</span>
+                </div>
+              </div>
+            </div>
         </div>
       </el-col>
     </el-row>
@@ -120,6 +126,9 @@ export default {
 
         return url
       }
+    },
+    toPublishTopic () {
+      this.$router.push({path: '/publishtopic'})
     }
   }
 }
@@ -156,5 +165,30 @@ export default {
       margin-left: 10px;
       margin-bottom: 10px;
     }
+  }
+
+  .topicBox {
+    height: 40px;
+    background-color: #80bd01;
+    width: 100px;
+    border-radius: 5px;
+    margin: 4px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login {
+    background-color: #5bc0de;
+    color: white;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 10px;
+    display: flex;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
   }
 </style>

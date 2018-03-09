@@ -12,7 +12,8 @@ export class LoginApi {
   }
 
   static logout () {
-    return server.connection('POST', '/api/logout')
+
+    // return server.connection('POST', 'https://cnodejs.org/signout')
   }
 }
 
