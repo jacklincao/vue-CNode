@@ -24,8 +24,9 @@
               <el-input v-model="title" placeholder="标题字数10字以上"></el-input>
             </div>
             <div class="item-top">
-              <quill-editor v-model="content">
-              </quill-editor>
+              <!--<quill-editor v-model="content">-->
+              <!--</quill-editor>-->
+              <RichTextEditor></RichTextEditor>
             </div>
           </form>
         </div>
@@ -73,8 +74,10 @@
 </template>
 
 <script>
+import RichTextEditor from '@/components/common/RichTextEditor.vue'
+
 export default {
-  components: {},
+  components: {RichTextEditor},
   data () {
     return {
       topicValue: '',

@@ -3,9 +3,12 @@ import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 import 'element-ui/lib/theme-chalk/index.css'
+import 'vue-material/dist/vue-material.min.css'
+import 'highlight.js/styles/agate.css'
 import './assets/styles/index.scss'
 import Vue from 'vue'
 import App from './App'
+import VueMaterial from 'vue-material'
 import router from './router'
 import { store } from './store'
 import { Row, Col, DatePicker, Form, FormItem, Input, Button, Pagination, Select, Option} from 'element-ui'
@@ -13,6 +16,7 @@ import VueQuillEditor from 'vue-quill-editor'
 
 Vue.prototype.$ELEMENT = {size: 'mini'}
 
+Vue.use(VueMaterial)
 Vue.use(Row)
 Vue.use(Col)
 Vue.use(DatePicker)
