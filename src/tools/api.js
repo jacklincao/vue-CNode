@@ -12,8 +12,16 @@ export class LoginApi {
   }
 
   static logout () {
-
     // return server.connection('POST', 'https://cnodejs.org/signout')
+  }
+}
+
+export class ArticleApi {
+  static getArticles (params) {
+    return server.connection('GET', 'https://cnodejs.org/api/v1/topics', params)
+  }
+  static publishTopic (params) {
+    return server.connection('POST', 'https://cnodejs.org/api/v1/topics', params)
   }
 }
 

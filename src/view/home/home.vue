@@ -71,6 +71,7 @@
 
 <script>
 import Articles from './articles'
+import {ArticleApi} from '@/tools/api'
 
 export default {
   data () {
@@ -93,39 +94,20 @@ export default {
   },
   methods: {
     getArticle: function (val = 1, tab = 'all') {
-      let _this = this
-      let url = 'https://cnodejs.org/api/v1/topics'
       let requestParam = {
         'page': val,
         'limit': this.pageSize,
         tab
       }
-      fetch(this.sendRequest(url, requestParam))
-        .then(function (response) {
-          return response.json()
-        })
-        .then(function (res) {
-          _this.articles = res.data
-        })
+      ArticleApi.getArticles(requestParam).then((res) => {
+        this.articles = res.data
+      }).catch((err) => {
+        alert('发生错误:' + err)
+      })
     },
     getAppointArticle (event) {
       this.currentTab = event.target.attributes.val.value
       this.getArticle(1, this.currentTab)
-    },
-    sendRequest: function (url, params) {
-      if (params) {
-        let paramsArray = []
-
-        Object.keys(params).forEach(key => paramsArray.push(key + '=' + params[key]))
-
-        if (url.search(/\?/) === -1) {
-          url += '?' + paramsArray.join('&')
-        } else {
-          url += '&' + paramsArray.join('&')
-        }
-
-        return url
-      }
     },
     toPublishTopic () {
       this.$router.push({path: '/publishtopic'})

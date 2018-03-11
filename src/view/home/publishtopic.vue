@@ -8,10 +8,10 @@
           </ul>
         </div>
         <div class="box-content">
-          <form class="form-padding">
+          <form class="form-padding" name="contentForm">
             <div class="item-top">
               <label>选择板块：</label>
-              <el-select v-model="topicValue" placeholder="请选择">
+              <el-select v-model="topic.tab" placeholder="请选择">
                 <el-option
                   v-for="item in topicOptions"
                   :key="item.value"
@@ -21,12 +21,15 @@
               </el-select>
             </div>
             <div class="item-top">
-              <el-input v-model="title" placeholder="标题字数10字以上"></el-input>
+              <el-input v-model="topic.title" placeholder="标题字数10字以上"></el-input>
             </div>
             <div class="item-top">
               <!--<quill-editor v-model="content">-->
               <!--</quill-editor>-->
-              <RichTextEditor></RichTextEditor>
+              <RichTextEditor :content="topic.content" @on-content-change="onContentChange"></RichTextEditor>
+            </div>
+            <div class="item-top">
+              <el-button type="primary" @click="submitTopic">提交</el-button>
             </div>
           </form>
         </div>
@@ -75,31 +78,38 @@
 
 <script>
 import RichTextEditor from '@/components/common/RichTextEditor.vue'
-
+import {ArticleApi} from '@/tools/api'
 export default {
   components: {RichTextEditor},
   data () {
     return {
-      topicValue: '',
-      title: '',
-      content: '',
-      accesstoken: '',
+      topic: {
+        title: '',
+        tab: '',
+        content: ''
+      },
       topicOptions: [{
-        value: 'dev1',
-        label: '分享'
-      },
-      {
-        value: 'dev2',
-        label: '回答'
-      },
-      {
-        value: 'dev3',
-        label: '招聘'
-      },
-      {
-        value: 'dev4',
+        value: 'dev',
         label: '客户端测试'
       }]
+    }
+  },
+  methods: {
+    submitTopic: function () {
+      let params = {
+        title: this.topic.title,
+        tab: this.topic.tab,
+        content: this.topic.content,
+        accesstoken: 'd96dfd3e-a9a7-47cd-8356-31c4fbb4ba6d'
+      }
+      ArticleApi.publishTopic(params).then((res) => {
+        this.$router.push({path: '/'})
+      }).then((err) => {
+        alert('发生错误:' + err)
+      })
+    },
+    onContentChange: function (val) {
+      this.topic.content = val
     }
   }
 }

@@ -4,7 +4,7 @@
     <md-card-media>
       <div class="quill-editor-example">
         <!-- quill-editor -->
-        <quill-editor v-model="content"
+        <quill-editor v-model="myContent"
                       :options="editorOption"
                       @blur="onEditorBlur($event)"
                       @focus="onEditorFocus($event)"
@@ -50,9 +50,10 @@ export default {
   components: {
     quillEditor
   },
+  props: ['content'],
   data () {
     return {
-      content: '',
+      myContent: this.content,
       editorOption: {
         modules: {
           toolbar: '#toolbar'
@@ -60,9 +61,17 @@ export default {
       }
     }
   },
+  watch: {
+    content (val) {
+      this.myContent = val
+    },
+    myContent (val) {
+      this.$emit('on-content-change', val)
+    }
+  },
   computed: {
     contentCode () {
-      return hljs.highlightAuto(this.content).value
+      return hljs.highlightAuto(this.myContent).value
     }
   },
   methods: {
