@@ -4,8 +4,8 @@ export default [
     component: () => import('../view/home/home')
   },
   {
-    path: '/payment',
-    component: () => import('../view/home/payment')
+    path: '/unreadmessage',
+    component: () => import('../view/home/unreadMessage')
   },
   {
     path: '/about',

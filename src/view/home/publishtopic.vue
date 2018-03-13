@@ -4,7 +4,7 @@
       <el-col :span="17" :offset="1">
         <div class="boxnav">
           <ul class="childNav">
-            <li><span>主页</span><span>/发布话题</span></li>
+            <li><router-link to="/" style="color: #80bd01;">主页</router-link>&nbsp;<span>/&nbsp;发布话题</span></li>
           </ul>
         </div>
         <div class="box-content">
@@ -138,6 +138,7 @@ export default {
     .childNav {
       margin-top: 0px;
       margin-bottom: 0px;
+      padding-left: 0px;
       li {
         display: inline;
       }

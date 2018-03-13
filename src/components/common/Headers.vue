@@ -8,7 +8,7 @@
               <router-link class="head-link" to="/" :style="[path == '' ? active : '']">首页</router-link>
             </div>
             <div class="head-nav">
-              <router-link class="head-link" to="/payment" :style="[path == 'payment' ? active : '']">未读消息</router-link>
+              <router-link class="head-link" to="/unreadmessage" :style="[path == 'unreadmessage' ? active : '']">未读消息</router-link>
             </div>
             <div class="head-nav">
               <router-link class="head-link" to="/newuser" :style="[path == 'newuser' ? active : '']">新手入门</router-link>
