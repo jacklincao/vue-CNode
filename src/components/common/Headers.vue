@@ -7,7 +7,7 @@
             <div class="head-nav">
               <router-link class="head-link" to="/" :style="[path == '' ? active : '']">首页</router-link>
             </div>
-            <div class="head-nav">
+            <div class="head-nav" v-if="this.$store.state.user.auth.isLogin">
               <router-link class="head-link" to="/unreadmessage" :style="[path == 'unreadmessage' ? active : '']">未读消息</router-link>
             </div>
             <div class="head-nav">
